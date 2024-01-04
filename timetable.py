@@ -3,7 +3,7 @@ from PIL import Image, ImageDraw, ImageFont
 
 def generate_colorful_timetable(roll_number, inside_font_size=12, inside_box_size=(200, 70)):
     def random_color():
-        return (random.randint(0, 255), random.randint(0, 255), random.randint(0, 255))
+        return (random.randint(100, 255), random.randint(100, 255), random.randint(100, 255))
     roll_number=int(roll_number)
     if not 23110001 <= roll_number <= 23110372:
         print("wrong Roll Number")
@@ -428,13 +428,12 @@ def generate_colorful_timetable(roll_number, inside_font_size=12, inside_box_siz
                     draw.text((j * inside_box_size[0] + 240, i * 150 + 150), f"venue: Central Arcade", fill="black", font=inside_font)
 
         
-            timetable_image.save('timetable.png')
+            timetable_image.save(str(roll_number)+'.png')
 
             
 if __name__ == "__main__":
-    student_roll_number=input("Roll Number: ")
+    student_roll_number = int(input("Enter Your Roll Number: "))
     inside_font_size = 22  # Set the desired font size for inside text
     inside_box_size = (450, 200)  # Set the desired box size for inside text
     generate_colorful_timetable(student_roll_number, inside_font_size, inside_box_size)
-    print("Your Timetable has been saved with name 'timetable.png' in working folder")
-
+    print("Your TimeTable has been saved to current working folder")
